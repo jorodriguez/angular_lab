@@ -1,10 +1,22 @@
-<div>
-  <h2>My song list</h2>
-  <ul class="songs">
-    <li *ngFor="let song of songs">
-      <a href="{{song.url}}" target="_blank">{{song.name}}</a>      
-      <br/>
-      <span>{{song.artist}}</span>
-    </li>
-  </ul>
+<div class="jumbotron">
+  <h2>Canciones </h2>
+  <div class="row">
+    <div class="col col-md-8">
+      <input type="text" name="song" [(ngModel)]="song" class="form-control" />
+    </div>
+    <div class="col col-md-4">
+      <button (click)="getSongs()" class="btn btn-primary btn-lg">Agregar una nueva canción</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <ul class="songs list-group list-group-flush">
+      <li *ngFor="let song of songs" class="list-group-item">
+        <img src="{{song.image[0]['#text']}}" alt="..."/>        
+        <a href="{{song.url}}" target="_blank">{{song.name}}</a>            
+        <br />
+        <span>{{song.artist}}</span>
+      </li>
+    </ul>
+  </div>
 </div>

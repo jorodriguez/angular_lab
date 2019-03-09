@@ -1,0 +1,23 @@
+
+
+
+<h2>Artistas</h2>
+<form (submit)="getArtists()">
+
+  <div class="form-group row">
+      <div class="col-md-4">
+          <input type="text" name="artist" [(ngModel)]="artist" class="form-control"/>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-primary" >Buscar</button>
+    </div>
+</form>
+
+<ul>
+  <li *ngFor="let artist of artists">
+    <a routerLink="artist/{{artist.name}}">
+      {{artist.name}}
+    </a>
+  </li>
+</ul>

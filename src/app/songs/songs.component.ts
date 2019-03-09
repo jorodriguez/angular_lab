@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';Response
 import { SongService } from './song.service';
 
 @Component({
@@ -9,7 +9,9 @@ import { SongService } from './song.service';
 export class SongsComponent implements OnInit {
 
   //instanciar variables
-  public songs:Array<object> = null;
+  public songs:Array<any> = null;
+
+  public song:string = null;
 
   constructor(private songService:SongService) { }
 
@@ -17,5 +19,11 @@ export class SongsComponent implements OnInit {
     this.songs = this.songService.getSongs();    
   } 
 
+   getSongs(){
+     this.songService.searchSong(this.song).then(
+       response=>{
+          this.songs = response;
+       });
+   }
 
 }
